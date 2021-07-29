@@ -28,10 +28,10 @@ set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O2 -Wall -fpermissive -Wl,--as-need
 #link_directories(/opt/armadillo/lib64
 #        /home/gaopeng/projects/qmod4/bin/x64/Debug)
 
-include_directories(src)
+include_directories(Common)
 link_directories(/usr/local/lib)
 link_libraries(pthread boost_system boost_filesystem) #boost_thread boost_date_time
 
 aux_source_directory(. DIR_PRESENT)
-aux_source_directory(src DIR_SRC)
+aux_source_directory(Common DIR_SRC)
 add_executable(asyc ${DIR_PRESENT} ${DIR_SRC})
