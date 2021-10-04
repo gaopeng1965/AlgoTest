@@ -736,3 +736,51 @@ bool Solution::isCovered(vector<vector<int>>& ranges, int left, int right){
     }
     return true;
 }
+
+// 两整数之和
+int Solution::getSum(int a, int b){
+    while(b != 0){
+        unsigned int c = (a & b) << 1;
+        a ^= b;
+        b = c;
+    }
+    return a;
+}
+
+// 密钥格式化
+string Solution::licenseKeyFormatting(string s, int k){
+    int count = 0;
+    for(char& c:s){
+        if(c != '-')
+            ++count;
+    }
+    if(!count) return "";
+    int mod = count % k;
+    int n = count / k;
+    int bytes = n * (k + 1) + mod;
+    if(!mod) --bytes;
+    string res(bytes,' ');
+    int i = 0;
+    int ii = 0;
+
+    while(count){
+        int j = 0;
+        int kk = k;
+        if(mod) kk = mod;
+        while(j != kk){
+            char tmp = s[i++];
+            if(tmp != '-'){
+                ++j;
+                // tmp <= 'z'实际不需要写
+                if(tmp >= 'a')
+                    tmp -= 32;
+                res[ii++] = tmp;
+            }
+        }
+        count -= kk;
+        if(mod) mod = 0;
+        if(ii != bytes)
+            res[ii++] = '-';
+    }
+    return res;
+}

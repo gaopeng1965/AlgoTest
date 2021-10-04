@@ -311,6 +311,10 @@ public:
     int maxFrequency(vector<int>& nums, int k);
     // 检查是否区域内所有整数都被覆盖
     bool isCovered(vector<vector<int>>& ranges, int left, int right);
+    // 两整数之和
+    int getSum(int a, int b);
+    // 密钥格式化
+    string licenseKeyFormatting(string s, int k);
 };
 
 #endif //ASYC_SOLUTION_H

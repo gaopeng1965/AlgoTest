@@ -245,17 +245,17 @@ int main() {
     try {
         shared_ptr<Solution> sol = make_shared<Solution>();
         auto begin = std::chrono::high_resolution_clock::now();
-//        auto result = sol->maxFrequency(nums,5);
-        auto result = BinaryTree::pathInZigZagTree(14);
+        auto result = sol->licenseKeyFormatting("5F3Z-2e-9-w", 4);
+//        auto result = BinaryTree::pathInZigZagTree(14);
         auto end = std::chrono::high_resolution_clock::now();
         auto elapsedTime = std::chrono::duration_cast<std::chrono::microseconds>(end - begin);
         cout << "time duration:" << elapsedTime.count() / 1000.0 << "ms" << endl;
 //        string beginTime = std::to_string(
 //                std::chrono::duration_cast<std::chrono::nanoseconds>(begin.time_since_epoch()).count());
-//        cout << result << endl;
-        std::for_each(result.begin(),result.end(),[](const int& x){
-            gpDebug(x);
-        });
+        cout << result << endl;
+//        std::for_each(result.begin(),result.end(),[](const int& x){
+//            gpDebug(x);
+//        });
     } catch (std::exception &e) {
         std::cout << e.what() << endl;
     }
